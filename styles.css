@@ -3,8 +3,10 @@ body {
     height: 100dvh;
     margin: 0px;
     padding: 0px;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 25px;
 }
 
 .column {
@@ -18,7 +20,7 @@ body {
 }
 
 .square {
-    border: 2px solid black;
+    border: 1px solid black;
     width: 25px;
     height: 25px;
 }
@@ -27,4 +29,9 @@ body {
     display: flex;
     flex-Direction: column;
     justify-Content: center;
+    align-items: center;
+}
+
+.onhover {
+    background-color:black;
 }
