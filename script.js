@@ -15,7 +15,6 @@ function addNewGrid() {
 
 function generateGrid(numSquares) {
     container.replaceChildren();
-    // repeat(numSquares, 1fr);
     container.style.gridTemplateColumns = `repeat(${numSquares}, 1fr`;
     container.style.gridTemplateRow = `repeat(${numSquares}, 1fr`;
     for (let i = 0; i < numSquares * numSquares; i++) {
@@ -24,10 +23,8 @@ function generateGrid(numSquares) {
         container.appendChild(div);
     }
     body.appendChild(container);
-
     hoverEffect();
 }
-
 
 function hoverEvent(e) {
     e.target.classList.add('onhover');
@@ -41,7 +38,6 @@ title.textContent = "Etch-a-Sketch";
 body.appendChild(title);
 addNewGrid();
 generateGrid(16);
-
 const button = document.querySelector('.btn');
 button.addEventListener('click', (e) => {
     console.log("hello");
