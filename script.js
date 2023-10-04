@@ -13,38 +13,26 @@ function addNewGrid() {
     body.appendChild(button);
 }
 
-function generateGrid(length) {
+function generateGrid(numSquares) {
     container.replaceChildren();
-    for (let column = 0; column < length; column++) {
-        const columnDiv = document.createElement('div');
-        columnDiv.classList.add('column');
-        const rowDiv = document.createElement('div');
-        rowDiv.classList.add('row');
-
-        for (let row = 0; row < length; row++) {
-            const div = document.createElement('div');
-            div.classList.add('square');
-            div.style.height = newWidth(length) + "px";
-            div.style.width = newWidth(length) + "px";
-            rowDiv.appendChild(div);
-        }
-        columnDiv.appendChild(rowDiv);
-        container.appendChild(columnDiv);
-        body.appendChild(container);
+    // repeat(numSquares, 1fr);
+    container.style.gridTemplateColumns = `repeat(${numSquares}, 1fr`;
+    container.style.gridTemplateRow = `repeat(${numSquares}, 1fr`;
+    for (let i = 0; i < numSquares * numSquares; i++) {
+        const div = document.createElement('div');
+        div.classList.add('square');
+        container.appendChild(div);
     }
+    body.appendChild(container);
+
     hoverEffect();
 }
 
-function newWidth(length) {
-    const newWidth = rowLength / length;
-    return newWidth;
-}
 
 function hoverEvent(e) {
     e.target.classList.add('onhover');
 }
 
-const rowLength = 400;
 const body = document.querySelector('body');
 const container = document.createElement('div');
 container.classList.add('container');
@@ -53,7 +41,6 @@ title.textContent = "Etch-a-Sketch";
 body.appendChild(title);
 addNewGrid();
 generateGrid(16);
-
 
 const button = document.querySelector('.btn');
 button.addEventListener('click', (e) => {

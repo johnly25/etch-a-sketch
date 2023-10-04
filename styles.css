@@ -21,15 +21,12 @@ body {
 
 .square {
     border: 1px solid black;
-    width: 25px;
-    height: 25px;
 }
 
 .container {
-    display: flex;
-    flex-Direction: column;
-    justify-Content: center;
-    align-items: center;
+    display: grid;
+    width: 400px;
+    height: 400px;
 }
 
 .onhover {
