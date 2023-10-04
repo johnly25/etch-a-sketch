@@ -1,6 +1,5 @@
 body {
     display: flex;
-    height: 100dvh;
     margin: 0px;
     padding: 0px;
     flex-direction: column;
@@ -20,13 +19,13 @@ body {
 }
 
 .square {
-    border: 1px solid black;
+    border: .5px solid black;
 }
 
 .container {
     display: grid;
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
 }
 
 .onhover {
