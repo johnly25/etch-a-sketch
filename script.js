@@ -14,16 +14,27 @@ function addNewGrid() {
 }
 
 function generateGrid(numSquares) {
-    container.replaceChildren();
-    container.style.gridTemplateColumns = `repeat(${numSquares}, 1fr`;
-    container.style.gridTemplateRow = `repeat(${numSquares}, 1fr`;
-    for (let i = 0; i < numSquares * numSquares; i++) {
-        const div = document.createElement('div');
-        div.classList.add('square');
-        container.appendChild(div);
+    if (!checkNumSquares(numSquares)) {
+        container.replaceChildren();
+        container.style.gridTemplateColumns = `repeat(${numSquares}, 1fr`;
+        container.style.gridTemplateRow = `repeat(${numSquares}, 1fr`;
+        for (let i = 0; i < numSquares * numSquares; i++) {
+            const div = document.createElement('div');
+            div.classList.add('square');
+            container.appendChild(div);
+        }
+        body.appendChild(container);
+        hoverEffect();
+    } else {
+        alert("Please Enter a number lower than 100");
     }
-    body.appendChild(container);
-    hoverEffect();
+
+}
+
+function checkNumSquares(numSquares) {
+    return numSquares > 100
+        
+    
 }
 
 function hoverEvent(e) {
