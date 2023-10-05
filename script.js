@@ -33,14 +33,19 @@ function generateGrid(numSquares) {
 
 function checkNumSquares(numSquares) {
     return numSquares > 100
-        
-    
 }
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+  
 
 function hoverEvent(e) {
-    e.target.classList.add('onhover');
+    if(!e.target.style.backgroundColor) {
+        e.target.style.backgroundColor = colors[getRandomInt(colors.length)];
+    }
 }
-
+const colors = ["#ecf7fc", "#daeff8", "#c6e6f5", "#b2def2", "#9dd6ee", "#87ceeb"];
 const body = document.querySelector('body');
 const container = document.createElement('div');
 container.classList.add('container');
@@ -52,9 +57,10 @@ generateGrid(16);
 const button = document.querySelector('.btn');
 button.addEventListener('click', (e) => {
     console.log("hello");
-    let length = prompt("Please Enter new grid length: ");
+    let length = prompt("Please Enter new grid length:");
     generateGrid(length);
 })
+
 
 
 
